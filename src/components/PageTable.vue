@@ -9,10 +9,10 @@
       <tr v-for="currency in valute">
         <td class="namevalue">{{ currency.Name }}</td>
         <td class="namevalue" v-if="currency.NumCode>0" style="color:greenyellow">
-          {{ currency.Value + " +" + currency.NumCode }}
+          {{ Math.floor(((currency.Value/currency.Nominal)*100))/100 + " +" + Math.floor(((currency.NumCode/currency.Nominal)*100))/100 }}
         </td>
         <td class="namevalue" v-if="currency.NumCode<0" style="color:red">
-          {{ currency.Value + " " + currency.NumCode }}
+          {{ Math.floor(((currency.Value/currency.Nominal)*100))/100 + " " + Math.floor(((currency.NumCode/currency.Nominal)*100))/100 }}
         </td>
       </tr>
       </tbody>

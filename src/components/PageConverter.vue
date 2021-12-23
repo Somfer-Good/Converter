@@ -70,21 +70,27 @@ export default {
     },
     result() {
       let select1 = this.valute[this.selected[0]];
+      let num1;
+      let num2;
       let select1v;
       let select2v;
       if (select1 === undefined) {
         select1v = 1
+        num1=1;
       } else {
-        select1v = this.valute[this.selected[0]].Value
+        select1v = this.valute[this.selected[0]].Value;
+        num1=this.valute[this.selected[0]].Nominal;
       }
       let select2 = this.valute[this.selected[1]];
       if (select2 === undefined) {
         select2v = 1
+        num2=1
       } else {
-        select2v = this.valute[this.selected[1]].Value
+        select2v = this.valute[this.selected[1]].Value;
+        num2=this.valute[this.selected[1]].Nominal;
       }
       let inp = this.inputed1;
-      this.outputed = Math.floor((inp * select1v / (select2v)) * 100) / 100;
+      this.outputed = Math.floor((inp*select1v*num2) / (select2v*num1) * 100) / 100
       this.inputed2 = this.inputed1;
     },
     buttonswap() {
